@@ -8,8 +8,6 @@ on:
       #      - '*/*'       # matches every branch containing a single '/'
       - '**'        # matches every branch
   #      - '!main'   # excludes main
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
