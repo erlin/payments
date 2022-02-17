@@ -3,12 +3,12 @@ name: Build and Publish
 on:
   # run it on push to the default repository branch
   push:
-    branches: [main]
-  # run it during pull request
-  pull_request:
     branches: [ main ]
+  # run it during pull request
+#  pull_request:
+#    branches: [ main ]
 
-defaults:
+jobs:
   # define job to build and publish docker image
   build-and-push-docker-image:
     name: Build Docker image and push to repositories
@@ -22,10 +22,10 @@ defaults:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Grant execute permission for gradlew
+      - name: Grant execute permission for mvnw
         run: chmod +x mvnw
-      - name: Build with Maven
+      - name: Build and Push Image
         env: # Or as an environment variable
           DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
           DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        run: ./mvnw jib:build
+        run: ./mvnw clean compile jib:build
