@@ -28,4 +28,4 @@ jobs:
         env: # Or as an environment variable
           DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
           DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        run: ./mvnw jib:build
+        run: ./mvnw clean compile jib:build
