@@ -1,8 +1,11 @@
 package com.nilre.payments.adapter.in;
 
+import com.nilre.payments.application.domain.Payment;
 import com.nilre.payments.application.port.in.CreditUseCase;
 import com.nilre.payments.application.domain.Credit;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/credit")
@@ -15,12 +18,12 @@ public class CreditCtrl {
     }
 
     @GetMapping("/{creditId}")
-    public Credit getCredit(@PathVariable("creditId") Integer creditId) {
-        return creditUseCase.retrieveCreditById(creditId);
+    public List<Payment> getCredit(@PathVariable("creditId") Integer creditId) {
+        return creditUseCase.retrieveCreditById(creditId).getPayments();
     }
 
     @PostMapping
-    public Credit createCredit(@RequestBody Credit credit) {
-        return creditUseCase.createCredit(credit);
+    public List<Payment> createCredit(@RequestBody Credit credit) {
+        return creditUseCase.createCredit(credit).getPayments();
     }
 }
