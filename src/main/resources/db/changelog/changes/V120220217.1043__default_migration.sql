@@ -1,4 +1,3 @@
-
 CREATE TABLE credit
 (
     id                      BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -16,5 +15,5 @@ CREATE TABLE payment
     payment_date            DATE NOT NULL,
     credit_id               BIGINT NOT NULL,
     FOREIGN KEY (credit_id)
-        REFERENCES credit(id)
+        REFERENCES credit (id)
 );

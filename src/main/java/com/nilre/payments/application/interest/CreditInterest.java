@@ -1,7 +1,7 @@
 package com.nilre.payments.application.interest;
 
-import com.nilre.payments.domain.Credit;
-import com.nilre.payments.domain.Payment;
+import com.nilre.payments.application.domain.Credit;
+import com.nilre.payments.application.domain.Payment;
 
 import java.util.List;
 
