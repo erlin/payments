@@ -10,6 +10,8 @@ public class Payment {
 
     private LocalDate payment_date;
 
+    public Payment() {}
+
     public Payment(Integer payment_number, Double amount, LocalDate payment_date) {
         this.payment_number = payment_number;
         this.amount = amount;
