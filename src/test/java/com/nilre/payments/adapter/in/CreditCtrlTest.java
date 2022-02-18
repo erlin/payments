@@ -1,5 +1,6 @@
 package com.nilre.payments.adapter.in;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -80,7 +81,7 @@ class CreditCtrlTest {
     }
 
     @Test
-    void testCreditCreationAndRetrieve() throws Exception {
+    void testCreditRetrieve() throws Exception {
         Credit credit = new Credit(1, 100.0, 10, 10.0, List.of(new Payment(1, 100.0, LocalDate.now())));
         Mockito.when(creditPersistenceUseCase.getCreditById(1)).thenReturn(credit);
 
@@ -88,9 +89,9 @@ class CreditCtrlTest {
                 .andExpect(MockMvcResultMatchers.status().is2xxSuccessful())
                 .andReturn().getResponse().getContentAsString();
 
-        Credit creditFromGet = mapper.readValue(newCreditAsString, Credit.class);
+        List<Payment> payments= mapper.readValue(newCreditAsString, new TypeReference<>(){});
 
-        Assertions.assertTrue(credit.equals(creditFromGet));
+        Assertions.assertTrue(payments.get(0).equals(credit.getPayments().get(0)));
     }
 
 }
