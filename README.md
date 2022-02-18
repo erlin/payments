@@ -6,6 +6,6 @@
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=erlin_payments&metric=coverage)](https://sonarcloud.io/summary/new_code?id=erlin_payments)
 
-To be able to test the API build in this project, using Docker, just need to execute the command:
+To be able to test the API built in this project, using Docker, just need to execute the command:
 
 docker run -p 8080:8080 registry.hub.docker.com/erlin/payments
