@@ -1,12 +1,8 @@
 package com.nilre.payments.application.port.out;
 
-import com.nilre.payments.application.dto.CreditDto;
-import com.nilre.payments.domain.Credit;
-import com.nilre.payments.domain.Payment;
-
-import java.util.List;
+import com.nilre.payments.application.domain.Credit;
 
 public interface CreditPersistenceUseCase {
-    CreditDto getCreditById(Integer creditId);
-    CreditDto persistCredit(Credit credit, List<Payment> payments);
+    Credit getCreditById(Integer creditId);
+    Credit persistCredit(Credit credit);
 }
