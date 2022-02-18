@@ -13,7 +13,7 @@ public class Credit {
 
     private Double rate;
 
-    private List<Payment> payments;
+    private List<Payment> payments = new ArrayList<>();
 
     public Credit() {}
 
